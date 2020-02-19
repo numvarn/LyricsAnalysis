@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card mb-4">
+    <div class="card-header"><i class="fas fa-table mr-1"></i>Show All Lyrics of {{title}}</div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                 <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Title</th>
+                        <th>Artist</th>
+                        <th>Polar</th>
+                        <th>Year</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>No.</th>
+                        <th>Title</th>
+                        <th>Artist</th>
+                        <th>Polar</th>
+                        <th>Year</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    {% for lyric in lyrics %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td><a href="{% url 'lyrics_page' lyric.id %}" target="bank">{{lyric.title}}</a></td>
+                        <td>{{lyric.artist}}</td>
+                        <td>{{lyric.polar}}</td>
+                        <td>{{lyric.year}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

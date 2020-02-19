@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="table-responsive">
+    <table class="table table-bordered" id="" width="100%" cellspacing="0">
+        <tbody>
+            <tr>
+                <td>Name</td>
+                <td>{{lyric.title}}</td>
+            </tr>
+            <tr>
+                <td>Artist</td>
+                <td><a href="{%url 'artist_page' lyric.artist_id%}" target="bank">{{lyric.artist}}</a></td>
+            </tr>
+            <tr>
+                <td>Polar</td>
+                <td>{{lyric.polar}}</td>
+            </tr>
+            <tr>
+                <td>Year</td>
+                <td>{{lyric.year}}</td>
+            </tr>
+            <tr>
+                <td>Chorus</td>
+                <td>{{lyric.chorus|linebreaks}}</td>
+            </tr>
+            <tr>
+                <td>Hook</td>
+                <td>{{lyric.hook|linebreaks}}</td>
+            </tr>
+            <tr>
+                <td>Lead</td>
+                <td>{{lyric.lead|linebreaks}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock %}
